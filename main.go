@@ -114,6 +114,10 @@ func initDB(config *Config) *sql.DB {
 		log.Fatal().Err(err)
 	}
 
+	if err := db.Ping(); err != nil {
+		log.Fatal().Err(err)
+	}
+
 	return db
 }
 

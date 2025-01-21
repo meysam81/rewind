@@ -4,10 +4,11 @@ WORKDIR /workdir
 
 COPY . .
 
+ENV CGO_ENABLED=0
 RUN go build -o requestrewind
 
-FROM gcr.io/distroless/static-debian12:nonroot
+FROM scratch
 
 COPY --from=builder /workdir/requestrewind /requestrewind
 
-CMD ["/requestrewind"]
+ENTRYPOINT ["/requestrewind"]
