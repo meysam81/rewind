@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: requestrewind
+      POSTGRES_PASSWORD: requestrewind
+      POSTGRES_DB: requestrewind
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  echo-server:
+    image: ealen/echo-server:0.9.2
+    environment:
+      - PORT=8000
+      - ENABLE__ENVIRONMENT=false
+    ports:
+      - 9000:8000
