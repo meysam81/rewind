@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS requests (
   method TEXT,
   path TEXT,
   headers JSONB,
+  cookies JSONB,
   body BYTEA,
   query_params JSONB,
   recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
