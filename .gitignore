@@ -30,3 +30,5 @@ tmp
 requestrewind
 .envrc
 vendor
+# Added by goreleaser init:
+dist/

@@ -1,5 +1,9 @@
 services:
   postgres:
+    command:
+      - postgres
+      - -c
+      - log_statement=all
     image: postgres:17-alpine
     environment:
       POSTGRES_USER: requestrewind
