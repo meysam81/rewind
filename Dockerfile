@@ -5,10 +5,10 @@ WORKDIR /workdir
 COPY . .
 
 ENV CGO_ENABLED=0
-RUN go build -o requestrewind
+RUN go build -o rewind
 
 FROM scratch
 
-COPY --from=builder /workdir/requestrewind /requestrewind
+COPY --from=builder /workdir/rewind /rewind
 
-ENTRYPOINT ["/requestrewind"]
+ENTRYPOINT ["/rewind"]

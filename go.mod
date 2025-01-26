@@ -1,8 +1,6 @@
-module github.com/meysam81/requestrewind
+module github.com/meysam81/rewind
 
 go 1.23.3
-
-replace github.com/meysam81/requestrewind => ./
 
 require (
 	github.com/lib/pq v1.10.9

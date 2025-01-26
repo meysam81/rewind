@@ -6,9 +6,9 @@ services:
       - log_statement=all
     image: postgres:17-alpine
     environment:
-      POSTGRES_USER: requestrewind
-      POSTGRES_PASSWORD: requestrewind
-      POSTGRES_DB: requestrewind
+      POSTGRES_USER: rewind
+      POSTGRES_PASSWORD: rewind
+      POSTGRES_DB: rewind
     volumes:
       - /var/lib/postgresql/data
     ports:

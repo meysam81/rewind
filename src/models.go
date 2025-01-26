@@ -1,12 +1,13 @@
-package requestrewind
+package rewind
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/oklog/ulid/v2"
 )
 
-type Request struct {
+type RequestWriteDB struct {
 	ID          ulid.ULID `json:"id"`
 	Method      string    `json:"method"`
 	Path        string    `json:"path"`
@@ -15,4 +16,9 @@ type Request struct {
 	Body        []byte    `json:"body"`
 	QueryParams []byte    `json:"query_params"`
 	RecordedAt  time.Time `json:"recorded_at"`
+}
+
+type App struct {
+	DB     *sql.DB
+	Config *Config
 }

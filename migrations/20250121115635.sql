@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS requests (
   id CHAR(26) PRIMARY KEY,
-  method TEXT,
-  path TEXT,
-  headers JSONB,
-  cookies JSONB,
-  body BYTEA,
-  query_params JSONB,
+  method TEXT NOT NULL,
+  path TEXT NOT NULL,
+  headers JSONB NULL,
+  cookies JSONB NULL,
+  body BYTEA NULL,
+  query_params JSONB NULL,
   recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS requests_method_path_headers_idx ON requests (method, path, headers);
+CREATE INDEX IF NOT EXISTS requests_method_path_idx ON requests (method, path);

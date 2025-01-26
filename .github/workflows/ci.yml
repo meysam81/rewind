@@ -15,6 +15,24 @@ on:
       - "*"
 
 jobs:
+  build-edge:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Build docker
+        uses: meysam81/build-docker@main
+        with:
+          image-name: ghcr.io/${{ github.repository }}
+          image-extra-tags: |
+            ghcr.io/${{ github.repository }}:${{ github.run_id }}
+            ghcr.io/${{ github.repository }}:latest
+          kubescape: true
+          kubescape-upload-sarif: true
+
   release-please:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04-arm
