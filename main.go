@@ -4,7 +4,7 @@ import (
 	"context"
 	"os"
 
-	rewind "github.com/meysam81/rewind/src"
+	rewind "rewind/src"
 
 	_ "github.com/lib/pq"
 	"github.com/rs/zerolog"
